@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulsa Service</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-section {
+            display: none;
+        }
+    </style>
+    <script>
+        function showForm() {
+            var selectedFeature = document.getElementById("featureSelect").value;
+            var transferForm = document.getElementById("transferForm");
+            var mintaForm = document.getElementById("requestForm");
+            var balanceForm = document.getElementById("balanceForm");
+
+            // Hide all forms first
+            transferForm.style.display = "none";
+            requestForm.style.display = "none";
+            balanceForm.style.display = "none";
+
+            // Show the selected form
+            if (selectedFeature === "transfer") {
+                transferForm.style.display = "block";
+            } else if (selectedFeature === "request") {
+                requestForm.style.display = "block";
+            } else if (selectedFeature === "balance") {
+                balanceForm.style.display = "block";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the *858# Service</h1>
+
+        <!-- Dropdown to select the feature -->
+        <label for="featureSelect">Choose a Feature:</label>
+        <select id="featureSelect" onchange="showForm()">
+            <option value="" selected disabled>Select an option</option>
+            <option value="transfer">Transfer Pulsa</option>
+            <option value="request">Request Pulsa</option>
+            <option value="balance">Check Balance</option>
+        </select>
+
+        <!-- Transfer Pulsa Form -->
+        <div id="transferForm" class="form-section">
+            <form action="/transfer" method="POST">
+                <h2>Transfer Pulsa</h2>
+                <label for="transferPhoneNumber">Phone Number:</label>
+                <input type="text" id="transferPhoneNumber" name="phoneNumber" required placeholder="08xxx or 628xxx">
+
+                <label for="transferAmount">Amount:</label>
+                <input type="number" id="transferAmount" name="amount" required placeholder="Enter amount">
+
+                <input type="submit" value="Transfer Pulsa">
+            </form>
+        </div>
+
+        <!-- request Pulsa Form -->
+        <div id="requestForm" class="form-section">
+            <form action="/request-pulsa" method="POST">
+                <h2>Request Pulsa</h2>
+                <label for="requestPhoneNumber">Phone Number:</label>
+                <input type="text" id="requestPhoneNumber" name="phoneNumber" required placeholder="08xxx or 628xxx">
+
+                <label for="requestAmount">Amount:</label>
+                <input type="number" id="requestAmount" name="amount" required placeholder="Enter amount to receive">
+
+                <input type="submit" value="Request Pulsa">
+            </form>
+        </div>
+
+        <!-- Check Balance Button -->
+        <div id="balanceForm" class="form-section">
+            <form action="/check-balance" method="GET">
+                <h2>Check Balance</h2>
+                <input type="submit" value="Check Balance">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

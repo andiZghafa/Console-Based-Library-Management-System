@@ -1,0 +1,9 @@
+com\mycompany\loginlibraryapp\DatabaseController.class
+com\mycompany\loginlibraryapp\Book.class
+com\mycompany\loginlibraryapp\DashboardBoundary.class
+com\mycompany\loginlibraryapp\LoginBoundary.class
+com\mycompany\loginlibraryapp\ValidatorController.class
+com\mycompany\loginlibraryapp\ListBookController.class
+com\mycompany\loginlibraryapp\User.class
+com\mycompany\loginlibraryapp\PreviewBookController.class
+com\mycompany\loginlibraryapp\LoginLibraryApp.class

@@ -1,0 +1,5 @@
+com\mycompany\libraryapp\User.class
+com\mycompany\libraryapp\Status.class
+com\mycompany\libraryapp\Book.class
+com\mycompany\libraryapp\LibraryApp.class
+com\mycompany\libraryapp\UserBook.class
